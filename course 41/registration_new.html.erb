@@ -1,0 +1,50 @@
+<section class="section user-form-section">
+  <div class="container">
+    <h1 class="title is-4 has-text-centered">Sign up</h1>
+
+    <div class="columns">
+      <div class="column is-4 is-offset-4">
+        <div class="box">
+          <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+            <%= devise_error_messages! %>
+
+            <div class="field">
+              <%= f.label :email, class: 'label' %>
+
+              <div class="control">
+                <%= f.email_field :email, class: 'input', autofocus: true %>
+              </div>
+            </div>
+
+            <div class="field">
+              <%= f.label :password, class: 'label' %>
+
+              <div class="control">
+                <%= f.password_field :password, class: 'input', autocomplete: "off" %>
+
+                <% if @minimum_password_length %>
+                  <p class="help is-success">
+                    <%= @minimum_password_length %> characters minimum
+                  </p>
+                <% end %>
+              </div>
+            </div>
+
+            <div class="field">
+              <%= f.label :password_confirmation, class: 'label' %>
+
+              <div class="control">
+                <%= f.password_field :password_confirmation, class: 'input', autocomplete: "off" %>
+              </div>
+            </div>
+
+            <div class="actions">
+              <%= f.submit 'Sign up', class: 'button is-primary' %>
+              <%= render "users/shared/links" %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
